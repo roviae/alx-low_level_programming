@@ -9,12 +9,9 @@ int main(void)
 {
 	int r;
 
-	r = _isalpha('H');
-	_putchar(r + '0');
-	r = _isalpha('o');
-	_putchar(r + '0');
-	r = _isalpha(108);
+	r = print_sign(98);
+	_putchar(',');
+	_putchar(' ');
 	_putchar(r + '0');
 	_putchar(10);
-	return (0);
 }

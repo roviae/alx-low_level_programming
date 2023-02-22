@@ -2,7 +2,7 @@
 
 /**
  * _isalpha - checks for alphabet character
- *
+ *@c: fxn arguement
  * Return: 1 if alphabet
  */
 int _isalpha(int c)

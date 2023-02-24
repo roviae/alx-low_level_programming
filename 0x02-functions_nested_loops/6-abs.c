@@ -2,21 +2,21 @@
 
 /**
  * _abs - fxn that computes the absolute value of an integer
- *@int: fxn arguement
+ *@num: fxn arguement
  * Return: 0 Always
  */
-int _abs(int)
+int _abs(int num)
 {
-	if (c < 0)
+	if (num < 0)
 	{
 		int abs_val;
 
-		abs_val = c * -1;
+		abs_val = num * -1;
 
 		return (abs_val);
 	}
 
-	return (c);
+	return (num);
 
 	return (0);
 }

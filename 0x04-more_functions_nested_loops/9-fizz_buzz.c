@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 /**
- * Fizz-Buzz -print numbers 1 to 100
+ * main -print numbers 1 to 100
  * for multiples of 3 print fizz
- * for multiples of 5 print Buzz 
+ * for multiples of 5 print Buzz
  * for multiples of both print Fixxbuzz
- * return: 0
+ * Return: 0
  */
 int main(void)
 {
@@ -24,7 +24,7 @@ int main(void)
 		else
 			printf("%d", i);
 
-		if ( i != 100)
+		if (i != 100)
 			putchar(' ');
 	}
 	putchar(10);

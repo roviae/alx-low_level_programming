@@ -1,7 +1,7 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
- * reverse_array - fxn that reverses the content of 
+ * reverse_array - fxn that reverses the content of
  * an array of integers
  * @a: array of integers
  * @n: no of elements in array
@@ -10,14 +10,14 @@
  */
 void reverse_array(int *a, int n)
 {
-	int i, j, tmp;
+	int i = 0;
+	int aux;
 
-	j = n -1;
-
-	for (i = 0; i < n / 2; i++)
+	while (i < n--)
 	{
-		tmp = a[i];
-		a[i] = a[j];
-		a[j--] = tmp;
+		aux = a[i];
+		a[i++] = a[n];
+		a[n] = aux;
 	}
 }
+

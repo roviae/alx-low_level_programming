@@ -1,0 +1,28 @@
+#include "main.h"
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdint.h> 
+/**
+ * cap_string - fxn that capitalizes all string words
+ * @cap: fxn parameter
+ *
+ * Return: 0
+ */
+char *cap_string(char *cap)
+{
+	int start = (intptr_t)(cap);
+
+	while (*cap)
+	{
+		if (*cap >= 'a' && *cap <= 'z')
+			*cap -= 32;
+
+		cap++;
+	}
+	putchar(start);
+	putchar(10);
+
+	return (0);
+}

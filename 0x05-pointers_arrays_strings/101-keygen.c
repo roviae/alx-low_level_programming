@@ -15,4 +15,7 @@ int main(void)
 	int passwords = rand();
 
 	putchar(passwords);
+	putchar(10);
+
+	return (0);
 }

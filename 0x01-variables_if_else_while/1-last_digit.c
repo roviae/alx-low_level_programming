@@ -7,7 +7,7 @@
  * show if n(random variable) is
  * greater than 5, o or less than 6 and not 0
  *
- * Return : always 0 (success);
+ * Return: always 0 (success);
  */
 int main(void)
 {

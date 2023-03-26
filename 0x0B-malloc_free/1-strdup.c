@@ -11,11 +11,8 @@
  */
 char *_strdup(char *str)
 {
-	char *s;
-
-	s = strdup(str);
-	while (str == NULL)
+	if (str == NULL)
 		return (NULL);
 
-	return (s);
+	return (strdup(str));
 }

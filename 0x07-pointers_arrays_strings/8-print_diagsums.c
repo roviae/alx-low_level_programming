@@ -1,22 +1,28 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * print_diagsums - fxn that prints sum of 2 diagonols of
- * a square matrix
- * @a: pointer to array
- * @size: array size
- *
- * Return: sum of diagonol values
+ * print_diagsums - Print the sums of the two diagnols of a matrix
+ * @a: The matrix
+ * @size: The length of the arrays
  */
+
 void print_diagsums(int *a, int size)
 {
-	int sum;
+	int i;
+	int sum1, sum2;
+	int len;
 
-	for (a[0][size - 1])
+	i = 0;
+	sum1 = sum2 = 0;
+	len = size * size;
+	while (i < len)
 	{
-		for (a[size - 1][0])
-
-	putchar(sum);
+		if (i % (size - 1) == 0 && i < len - 1 && i > 0)
+			sum2 += *(a + i);
+		if (i % (size + 1) == 0 || i == 0)
+			sum1 += *(a + i);
+		i++;
+	}
+	printf("%d, %d\n", sum1, sum2);
 }

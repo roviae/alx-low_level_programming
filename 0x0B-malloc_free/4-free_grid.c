@@ -1,25 +1,22 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * free_grid - fxn that frees a 2 dimensional grid
- * previously created by your alloc_grid fxn
- * @grid: previous fxn
- * @height: freeable var from grid
+ * free_grid - Free memory allocated to a previoiusly created 2D array
+ * @grid: The 2D array to free memory from
+ * @height: The height of the 2D array
  *
- * Return: 0
+ * Return: Nothing
  */
 void free_grid(int **grid, int height)
 {
 	int i;
 
-	if (grid != NULL || height != 0)
+	i = 0;
+	while (i < height)
 	{
-		for (i = 0; i < height; i++)
-		{
-			free(grid[i]);
-		}
-		free(grid);
+		free(grid[i]);
+		i++;
 	}
+	free(grid);
 }

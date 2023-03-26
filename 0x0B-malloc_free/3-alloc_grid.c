@@ -1,44 +1,49 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * alloc_grid - fxn that returns a pointer to a
- * 2 dimensional array of integers
- * @width: width
- * @height: height
+ * alloc_grid - Create a 2 dimensional array
+ * @width: Width of grid, aka # of columns
+ * @height: Height of grid, aka # of rows
  *
- * Return:0
+ * Return: Pointer to 2D array, NULL if it fails
  */
 int **alloc_grid(int width, int height)
 {
-	int **darray;
+	int **grid;
 	int i, j;
 
+	i = 0;
 	if (width <= 0 || height <= 0)
 		return (NULL);
-
-	darray = malloc(sizeof(int) * height);
-
-	if (darray == NULL)
+	grid = malloc(height * sizeof(*grid));
+	if (grid == NULL)
 	{
-		free(darray);
+		free(grid);
 		return (NULL);
 	}
-
-	for (i = 0; i < height; i++)
+	while (i < height)
 	{
-		darray[i] = malloc(sizeof(int) * width);
-		if (darray == NULL)
+		grid[i] = malloc(width * sizeof(**grid));
+		if (grid[i] == NULL)
 		{
-			free(darray);
+			i--;
+			while (i >= 0)
+			{
+				free(grid[i]);
+				i--;
+			}
+			free(grid);
 			return (NULL);
 		}
-
-		for (j = 0; j < width; j++)
+		j = 0;
+		while (j < width)
 		{
-			darray[i][j] = 0;
+			grid[i][j] = 0;
+			j++;
 		}
+		i++;
 	}
-	return (darray);
+	i = 0;
+	return (grid);
 }

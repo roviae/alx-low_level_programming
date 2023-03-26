@@ -9,29 +9,35 @@
  */
 int main(void)
 {
-	int m, n, p;
+	int i = '0';
+	int j = '0';
+	int k = '0';
 
-	for (m = '0'; m < '9'; m++)
+	while (i <= '7')
 	{
-		for (n = m + 1; n < '9'; n++)
+		while (j <= '8')
 		{
-			for (p = '0'; p < '9'; p++)
+			while (k <= '9')
 			{
-				if ((m != n) != p)
+				if (i < j && j < k)
 				{
-					putchar(m);
-					putchar(n);
-					putchar(p);
-
-					if (m == '7' && n == '8')
-						continue;
-					putchar(44);
-					putchar(' ');
+					putchar(i);
+					putchar(j);
+					putchar(k);
+					if (!(i == '7' && j == '8' && k == '9'))
+					{
+						putchar(44);
+						putchar(' ');
+					}
 				}
+				k++;
 			}
+			k = '0';
+			j++;
 		}
+		j = '0';
+		i++;
 	}
 	putchar(10);
-
 	return (0);
 }

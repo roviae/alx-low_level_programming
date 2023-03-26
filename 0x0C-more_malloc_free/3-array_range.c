@@ -1,30 +1,29 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
 /**
- * array_range - fxn that creates an array of integers
- * @min: min value of array
- * @max: maximum value of array
+ * array_range - Create array of integers filled with numbers from min to max
+ * @min: First number in the array
+ * @max: Largest number in the array
  *
- * Return: 0
+ * Return: Pointer to new array, NULL if failed
  */
 int *array_range(int min, int max)
 {
-	int *arr;
-	int i, len;
+	int *ar;
+	int i, size, n;
 
 	if (min > max)
 		return (NULL);
-	for (len = 0; len < (max - min); len++)
-	arr = malloc(sizeof(int) * (len + 1));
-	if (arr == NULL)
-		return (NULL);
-
-	for (i = 0; i <= len; i++)
+	size = max - min;
+	ar = malloc((size + 1) * sizeof(int));
+	i = 0;
+	n = min;
+	while (n <= max)
 	{
-		arr[i] = min++;
+		ar[i] = n;
+		i++;
+		n++;
 	}
-
-	return (arr);
+	return (ar);
 }

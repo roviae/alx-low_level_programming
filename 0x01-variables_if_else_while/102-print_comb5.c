@@ -13,19 +13,27 @@
  */
 int main(void)
 {
-	int m, n;
+	int num1, num2;
 
-	for (n = '0'; n <= '9'; n++)
+	for (num1 = 0; num1 <= 98; num1++)
 	{
-		for (m = '0'; m <= '9'; m++)
+		for (num2 = num1 + 1; num2 <= 99; num2++)
 		{
-			putchar(n);
-			putchar(m);
-			putchar(44);
+			putchar((num1 / 10) + '0');
+			putchar((num1 % 10) + '0');
+			putchar(' ');
+			putchar((num2 / 10) + '0');
+			putchar((num2 % 10) + '0');
+
+			if (num1 == 98 && num2 == 99)
+				continue;
+
+			putchar(',');
 			putchar(' ');
 		}
 	}
-	putchar(10);
+
+	putchar('\n');
 
 	return (0);
 }

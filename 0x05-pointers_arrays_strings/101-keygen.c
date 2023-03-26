@@ -10,12 +10,17 @@
  */
 int main(void)
 {
-	srand(time(NULL) * getpid());
+	int unlock, passwd;
 
-	int passwords = rand();
+	srand(time(NULL));
+	unlock = 2772;
+	while (unlock >= 127)
+	{
+		passwd = (rand() % 126) + 1;
+		printf("%c", passwd);
+		unlock -= passwd;
+	}
 
-	putchar(passwords);
-	putchar(10);
-
+	printf("%c", unlock);
 	return (0);
 }

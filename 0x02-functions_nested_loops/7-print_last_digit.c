@@ -2,7 +2,7 @@
 
 /**
  * print_last_digit - print last digit of a number
- * @n - fxn parameter (C99 acceptable)
+ * @n: fxn parameter (C99 acceptable)
  * Return: Always 0
  */
 int print_last_digit(int n)

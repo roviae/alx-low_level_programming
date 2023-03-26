@@ -17,7 +17,5 @@ int factorial(int n)
 		return (1);
 	}
 
-	putchar(n * factorial(n - 1));
-
-	return (0);
+	return (n * factorial(n - 1));
 }

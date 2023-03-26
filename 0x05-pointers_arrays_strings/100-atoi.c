@@ -10,16 +10,31 @@
  */
 int _atoi(char *s)
 {
-	int i;
+		int i, n, m;
 
-	for (i = 0; s[i] != '\0'; i++)
+	i = n = m = 0;
+	while (*(s + i) != '\0')
 	{
-		while ((s[i] == '+') || (s[i] == '-') || (s[i] == 'Aa
-					- Zz'))
+		if (*(s + i) == '-')
+			m++;
+		if (*(s + i) >= '0' && *(s + i) <= '9')
+		{
+			while (*(s + i) >= '0' && *(s + i) <= '9')
+			{
+				if (n == 0)
 				{
-				putchar (atoi(s));
+					n = (n * 10) + (*(s + i) - '0');
+					n *= -1;
 				}
-		putchar(10);
-
-		return (0);
+				else
+					n = (n * 10) - (*(s + i) - '0');
+				i++;
+			}
+			if (m % 2 == 0)
+				n *= -1;
+			return (n);
+		}
+		i++;
+	}
+	return (0);
 }

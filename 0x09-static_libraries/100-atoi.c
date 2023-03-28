@@ -1,25 +1,15 @@
 #include "main.h"
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 /**
- * _atoi - fxn that convert a string to an integer
+ * _atoi - fxn that converts string to integer
+ * @s: string to convert to int
  *
- * @s: string to be converted
- *
- * Return: 0
+ * Return: integer
  */
 int _atoi(char *s)
 {
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		while ((s[i] == '+') || (s[i] == '-') || (s[i] == 'Aa - Zz'))
-				{
-				putchar (atoi(s));
-				}
-		putchar(10);
-
-		return (0);
-	}
+	return atoi(s);
 }

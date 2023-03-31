@@ -1,39 +1,51 @@
+#include <stdlib.h>
 #include "lists.h"
 #include <string.h>
-#include <stdlib.h>
 
 /**
- * add_node_end - A function that adds a node to the end of linked list
- * @head: pointer to a list_t pointer that points to the head struct
- * @str: string to add as node
- * Return: pointer to new element of list, NULL on failure
+ * add_node_end - Add a new element to a list_t list at the end
+ * @head: Pointer to pointer to start of the list
+ * @str: String to copy to str element of list_t item
+ *
+ * Return: Address of new element, NULL if fails
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *temp;
-	unsigned int length = 0;
+	list_t *new;
+	list_t *current;
+	unsigned int i;
 
-	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	while (str[length])
-		length++;
-
-	new_node->len = length;
-	new_node->str = strdup(str);
+	i = 0;
 	if (*head == NULL)
 	{
-		new_node->next = *head;
-		*head = new_node;
+		new = malloc(sizeof(list_t));
+		if (new == NULL)
+			return (NULL);
+		new->next = NULL;
+		*head = new;
+		new->str = strdup(str);
+		while (str[i] != '\0')
+			i++;
+		new->len = i;
 	}
 	else
 	{
-		new_node->next = NULL;
-		temp = *head;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = new_node;
+		current = *head;
+		while (1)
+		{
+			if (current->next == NULL)
+				break;
+			current = current->next;
+		}
+		new = malloc(sizeof(list_t));
+		if (new == NULL)
+			return (NULL);
+		new->next = NULL;
+		current->next = new;
+		new->str = strdup(str);
+		while (str[i] != '\0')
+			i++;
+		new->len = i;
 	}
-	return (new_node);
+	return (new);
 }

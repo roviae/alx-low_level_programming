@@ -9,23 +9,22 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int mask = 0, max = 32768;
+	int m, count_ones = 0;
+	unsigned long int new_value;
 
-	if (n == 0)
+	for (m = 63; m >= 0; m--)
 	{
-		_putchar('0');
-		return;
-	}
+		new_value = n >> m;
 
-	while (max)
-	{
-		if (mask == 1 && (n & max) == 0)
-			_putchar('0');
-		else if ((n & max) != 0)
+		if (new_value & 1)
 		{
 			_putchar('1');
-			mask = 1;
+			count_ones++;
 		}
-		max >>= 1;
+		else if (count_ones)
+			_putchar('0');
 	}
+
+	if (!count_ones)
+		_putchar('0');
 }
